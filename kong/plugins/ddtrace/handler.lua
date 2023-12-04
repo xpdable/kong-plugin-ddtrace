@@ -60,6 +60,8 @@ local function get_agent_writer(conf)
             local version = conf.version
             conf.agent_endpoint = string.format("http://%s:%d/%s/traces", host, port, version)
         end
+        kong.log.debug("the current config: " .. conf)
+        kong.log.debug("the current config: " .. conf.agent_endpoint)
         agent_writer_cache[conf] = new_trace_agent_writer(conf.agent_endpoint, sampler, DatadogTraceHandler.VERSION)
     end
     return agent_writer_cache[conf]
@@ -185,7 +187,7 @@ local function apply_resource_name_rules(uri, rules)
         end
         ::continue::
     end
-        
+
     return table.concat(fragments)
 end
 
