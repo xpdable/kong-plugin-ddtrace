@@ -64,6 +64,9 @@ return {
             fields = {
                 { service_name = { type = "string", required = true, default = "kong" } },
                 { environment = { type = "string", default = "none" } },
+                { host = { type = "string", default = "none" } },
+                { port = { type = "string", default = "none" } },
+                { version = { type = "string", default = "none" } },
                 { agent_endpoint = allow_referenceable(typedefs.url({ default = "http://localhost:8126/v0.4/traces" }))},
                 { static_tags = { type = "array", elements = static_tag,
                 custom_validator = validate_static_tags } },
