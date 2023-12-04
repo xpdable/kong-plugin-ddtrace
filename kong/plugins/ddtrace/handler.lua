@@ -54,11 +54,12 @@ end
 
 local function get_agent_writer(conf)
     if agent_writer_cache[conf] == nil then
-        if not conf.agent_endpoint then
+        if not conf.host == nil then
             local host = conf.host
             local port = conf.port
             local version = conf.version
             conf.agent_endpoint = string.format("http://%s:%d/%s/traces", host, port, version)
+            kong.log.debug("[INSIDE] the current config: " .. conf.agent_endpoint)
         end
 --         kong.log.debug("the current config: " .. conf)
         kong.log.debug("the current config: " .. conf.agent_endpoint)
