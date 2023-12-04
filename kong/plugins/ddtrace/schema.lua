@@ -64,7 +64,7 @@ return {
             fields = {
                 { service_name = { type = "string", required = true, default = "kong" } },
                 { environment = { type = "string", default = "none" } },
-                { agent_ip = allow_referenceable(typedefs.ip({ default = "127.0.0.1" })) },
+                { host = allow_referenceable(typedefs.ip({ default = "127.0.0.1" })) },
                 { port = { type = "string", default = "none" } },
                 { version = { type = "string", default = "none" } },
                 { agent_endpoint = allow_referenceable(typedefs.url({ default = "http://localhost:8126/v0.4/traces" }))},
