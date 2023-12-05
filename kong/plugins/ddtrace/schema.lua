@@ -65,7 +65,7 @@ return {
                 { service_name = { type = "string", required = true, default = "kong" } },
                 { environment = { type = "string", default = "none" } },
                 { host = allow_referenceable(typedefs.ip()) },
-                { port = { type = "number", default = "none" } },
+                { port = { type = "integer", default = 8126, gt = 0 } },
                 { version = { type = "string", default = "none" } },
                 { agent_endpoint = allow_referenceable(typedefs.url({ default = "http://localhost:8126/v0.4/traces" }))},
                 { static_tags = { type = "array", elements = static_tag,
